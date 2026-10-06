@@ -1,0 +1,22 @@
+name: ThemeAnticheat
+version: 1.0.0
+main: com.themesmp.anticheat.ThemeAnticheat
+api-version: '1.21'
+author: Theme SMP
+description: Theme Anticheat - basic anticheat for Theme SMP
+
+commands:
+  theme:
+    description: Theme Anticheat main command
+    usage: /theme <alerts|vl|reload>
+
+permissions:
+  theme.admin:
+    description: Use /theme commands
+    default: op
+  theme.alerts:
+    description: Receive cheat alerts
+    default: op
+  theme.bypass:
+    description: Bypass all checks (NOT given to OPs automatically)
+    default: false

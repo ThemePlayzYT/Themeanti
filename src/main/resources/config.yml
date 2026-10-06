@@ -1,0 +1,58 @@
+# Theme Anticheat configuration
+# Colors use & codes. Placeholders: {player} {check} {vl} {max} {info}
+
+prefix: "&4&lTheme &8» "
+alert-format: "{prefix}&f{player} &7failed &f{check} &7[&c{vl}&7/&c{max}&7] &8{info}"
+punish-broadcast:
+  - "&8&m-----------------------------------"
+  - "&cTheme Anticheat &7detected &c{player} &7cheating and banned them for &c1 day&7."
+  - "&7Join &bTheme SMP &7Discord: &fdiscord.gg/4yqxXUkNaF"
+  - "&8&m-----------------------------------"
+
+# Commands run from console when a player reaches max-vl on any check (LiteBans/EssentialsX tempban)
+punish-commands:
+  - "tempban {player} 1d &cUnfair Advantage (Theme Anticheat) &7| Theme SMP Discord: discord.gg/4yqxXUkNaF"
+
+# Send player back to last position when a movement/combat check flags
+setback: true
+
+settings:
+  # Checks are skipped for players above this ping (ms) or when server TPS is below min-tps
+  max-ping: 400
+  min-tps: 18.0
+  # Grace period after join / teleport / knockback is handled in code (ms)
+  # Violations decrease by this amount every minute
+  decay-per-minute: 1.0
+
+checks:
+  fly:
+    enabled: true
+    max-vl: 8
+  speed:
+    enabled: true
+    max-vl: 10
+    ground-max: 0.34     # max blocks per move on ground (sprinting ~0.28)
+    air-max: 0.42        # max blocks per move in the air (sprint-jump)
+  timer:
+    enabled: true
+    max-vl: 6
+    max-moves-per-second: 25
+  reach:
+    enabled: true
+    max-vl: 8
+    tolerance: 0.5       # extra blocks allowed on top of vanilla reach (lag compensation)
+  killaura:
+    enabled: true
+    max-vl: 8
+    max-angle: 95        # degrees between crosshair and target
+  autoclicker:
+    enabled: true
+    max-vl: 6
+    max-cps: 24
+  fastplace:
+    enabled: true
+    max-vl: 6
+    max-blocks-per-second: 14
+  groundspoof:
+    enabled: true
+    max-vl: 8
